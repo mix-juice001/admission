@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="../../static/css/style.css" th:href="@{/css/style.css}" />
+</head>
+<body>
+<p>Hello input user name. </p>
+
+<form action="/valid/show" method="post" th:object="${userForm}">
+    <ul th:if="${#fields.hasErrors('*')}">
+        <li th:each="err : ${#fields.errors('*')}" th:text="${err}" class="error-message">Input is incorrect</li>
+    </ul>
+
+    name:<input type="text" name="name" th:value="*{name}"/><br/>
+    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error-message">不正な入力</span><br/>
+    age:<input type="text" name="age" th:value="*{age}"/><br/>
+    <p th:if="${#fields.hasErrors('age')}" th:errors="*{age}" class="error-message">Incorrect date</p>
+    <input type="submit" value="submit"/>
+</form>
+</body>
+</html>
