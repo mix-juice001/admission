@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<p th:text="'Hello, redirect' + ${name} + '!?A!'" />
+<ul>
+    <li th:each="user : ${userList}" th:text="${user.name}">aaa</li>
+</ul>
+<form action="/prg/add" method="post">
+    <input type="text" name="name"/>
+    <input type="submit" value="add"/>
+</form>
+</body>
+</html>

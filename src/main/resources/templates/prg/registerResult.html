@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<p>you registered new user successfully.</p>
+<p th:text="'you succeeded to register a new user ' + ${name} + '!'" />
+<p th:text="${message}" />
+<ul>
+    <li th:each="user : ${userList}" th:text="${user.name}">aaa</li>
+</ul>
+</body>
+</html>
