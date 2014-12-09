@@ -1,19 +1,19 @@
 package admission.service;
 
-import org.springframework.stereotype.Service;
-
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class UserForm {
+    public interface GroupA{};
+    public interface GroupB{};
     @NotNull
-    @Size(min = 1, max = 20)
+    @Size(min = 1, max = 20, groups = GroupB.class)
     private String name;
     @NotNull
-    @Min(value=20)
-    @Max(100)
+    @Min(20)
+    @Max(value=100, groups = GroupA.class)
     private int age;
 
     public int getAge() {
