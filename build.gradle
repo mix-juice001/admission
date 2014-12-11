@@ -1,6 +1,6 @@
 buildscript {
     repositories {
-        maven { url "http://repo.spring.io/libs-release" }
+        maven { url "https://repo.spring.io/libs-release" }
         mavenLocal()
         mavenCentral()
     }
@@ -21,10 +21,17 @@ jar {
     version =  '0.1.0'
 }
 
+idea {
+    module {
+        inheritOutputDirs = false
+        outputDir = file("$buildDir/classes/main/")
+    }
+}
+
 repositories {
     mavenLocal()
     mavenCentral()
-    maven { url "http://repo.spring.io/libs-release" }
+    maven { url "https://repo.spring.io/libs-release" }
 }
 
 dependencies {
@@ -34,7 +41,7 @@ dependencies {
     compile("org.mybatis:mybatis:3.2.7")
     compile("org.mybatis:mybatis-spring:1.2.2")
     compile("com.h2database:h2")
-    compile('org.springframework:springloaded:1.2.1.RELEASE')
+    //compile('org.springframework:springloaded:1.2.1.RELEASE')
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
 
     testCompile("junit:junit")
